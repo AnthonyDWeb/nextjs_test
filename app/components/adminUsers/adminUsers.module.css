@@ -1,0 +1,22 @@
+.user {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5px 10px;
+    background-color: var(--medium-dark);
+}
+.details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.userButton {
+    padding: 5px 10px;
+    background-color: rgba(220,20,60,0.593);
+    color: var(--light);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

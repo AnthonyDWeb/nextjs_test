@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container input, .container textarea, .container select {
+    background-color: var(--medium-dark);
+    border: none;
+    padding: 20px;
+    outline: none;
+    border-radius: 5px;
+    color: var(--light);
+}
+
+.container button {
+    padding: 20px;
+    cursor: pointer;
+    background-color: var(--btn);
+    border: none;
+    border-radius: 5px;
+    color: var(--light);
+    font-weight: bold;
+}
