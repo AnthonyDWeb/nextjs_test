@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/app/components/navbar/Navbar";
-import Footer from "@/app/components/footer/Footer";
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const geistSans = localFont({
-	src: "../fonts/GeistVF.woff",
+	src: "../../public/fonts/GeistVF.woff",
 	variable: "--font-geist-sans",
 	weight: "100 900",
 });
 const geistMono = localFont({
-	src: "../fonts/GeistMonoVF.woff",
+	src: "../../public/fonts/GeistMonoVF.woff",
 	variable: "--font-geist-mono",
 	weight: "100 900",
 });

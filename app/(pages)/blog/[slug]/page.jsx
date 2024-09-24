@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styles from "./singlePost.module.css";
-import PostUser from "../../../components/postUser/postUser";
+import PostUser from "@/components/postUser/postUser";
 import { Suspense } from "react";
-import { getPost } from "../../../lib/data";
-import imgSrc from '../../../assets/images/post4.jpg';
+import { getPost } from "@/lib/data";
 
 // FETCH DATA WITH AN API
 const getData = async (slug) => {
@@ -39,7 +38,7 @@ const SinglePostPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <Image src={post.img ? post.img : imgSrc} alt="" fill className={styles.img} />
+        <Image src={post.img ? post.img : '/images/post.jpg'} alt="" fill className={styles.img} />
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>
@@ -52,7 +51,6 @@ const SinglePostPage = async ({ params }) => {
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>
-              {/* {post.createdAt.toString().slice(4, 16)} */}
               01.01.0001
             </span>
           </div>

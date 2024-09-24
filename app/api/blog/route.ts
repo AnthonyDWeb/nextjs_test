@@ -1,24 +1,37 @@
 "use server";
 
-import { connectToDb } from "@/app/lib/connectDB";
-import { Post } from "@/app/lib/models";
-import { NextResponse } from "next/server";
+import { Post } from "@/lib/models";
+import { connectToMongoDB } from "@/lib/mongodb";
+import { revalidatePath } from "next/cache";
+import { NextResponse, NextRequest } from "next/server";
 
 export const GET = async () => {
+	console.log("---------------------------------");
+	console.log("inside GET api blog route");
+	console.log("---------------------------------");
 	try {
-		connectToDb();
+		connectToMongoDB();
 		const posts = await Post.find();
 		return NextResponse.json(posts);
 	} catch (error) {
-		console.log("fetch is failed");
+		throw new Error("fetch is failed");
 	}
 };
-export const POST = async (request: any) => {
+
+export const POST = async (request: NextRequest) => {
+	const body = await request.json();
+	const { title, description, userId, slug } = body;
+	console.log("---------------------------------");
+	console.log("POST body", body);
 	try {
-		connectToDb();
-		const posts = await Post.find();
-		return NextResponse.json(posts);
+		connectToMongoDB();
+		const newPost = new Post({ title, description, userId, slug });
+		console.log("POST newPost", newPost);
+		await newPost.save();
+		revalidatePath("/blog");
+		revalidatePath("/admin");
+		console.log("---------------------------------");
 	} catch (error) {
-		console.log("fetch is failed");
+		throw new Error("fetch is failed");
 	}
 };

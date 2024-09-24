@@ -1,28 +1,27 @@
-import PostCard from "@/app/components/postCard/postCard";
-import { getPosts } from "@/app/lib/data";
+import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
 import { Metadata } from "next";
 import { Key } from "react";
 
-// FETCH DATA WITH AN API
-const getData = async () => {
-	const res = await fetch("http://localhost:3000/api/blog", {
-		next: { revalidate: 3600 },
-	});
-
-	if (!res.ok) {
-		throw new Error("Something went wrong");
-	}
-
-	return res.json();
-};
 export const metadata: Metadata = {
 	title: "blog page",
 	description: "nextjs Website blog page",
 };
 
 const BlogPage = async () => {
+
 	// FETCH DATA WITH AN API
+	const getData = async () => {
+		const res = await fetch("http://localhost:3000/api/blog", {
+			next: { revalidate: 3600 },
+		});
+		console.log("inside getData postcard");
+		if (!res.ok) {
+			throw new Error("Something went wrong");
+		}
+
+		return res.json();
+	};
 	const posts = await getData();
 
 	// FETCH DATA WITHOUT AN API
@@ -38,5 +37,4 @@ const BlogPage = async () => {
 		</div>
 	);
 };
-
 export default BlogPage;

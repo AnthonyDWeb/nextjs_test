@@ -1,8 +1,6 @@
 import Image from "next/image";
-import brands from "../assets/images/brands.png";
-import hero from "../assets/images/hero.gif";
 
-export default async function Home() {
+export default function Home() {
 	return (
 		<div className="home-container">
 			<div className="home-text-container">
@@ -16,11 +14,11 @@ export default async function Home() {
 					<button className="home-button">Contact</button>
 				</div>
 				<div className="brands">
-					<Image src={brands} alt="brands image" className="brandsImage" fill />
+					<Image src={"/images/brands.png"} alt="brands image" className="brandsImage" fill />
 				</div>
 			</div>
 			<div className="home-img-container">
-				<Image src={hero} fill alt="hero image" />
+				<Image src={"/images/hero.gif"} fill alt="hero image" />
 			</div>
 		</div>
 	);

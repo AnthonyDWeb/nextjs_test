@@ -1,5 +1,4 @@
 import Image from "next/image";
-import contact from "../../assets/images/contact.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +10,7 @@ export default function Contact() {
 	return (
 		<div className="contact-container">
 			<div className="img-container">
-				<Image src={contact} alt="contact image" fill className="img-contact" />
+				<Image src={"/images/contact.png"} alt="contact image" fill className="img-contact" />
 			</div>
 			<div className="form-container">
 				<form action="" className="form">

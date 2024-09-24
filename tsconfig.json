@@ -21,6 +21,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
@@ -29,22 +30,20 @@
         "./components/*"
       ],
       "@/fonts/*": [
-        "./fonts/*"
+        "./public/fonts/*"
       ],
       "@/images/*": [
-        "./assets/images/*"
+        "./public/images/*"
       ],
-      "@/icons/*": [
-        "./assets/icons/*"
-      ]
     }
   },
   "include": [
     "next-env.d.ts",
+    "types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/lib/data.js"
+    "lib/data.js"
   ],
   "exclude": [
     "node_modules"

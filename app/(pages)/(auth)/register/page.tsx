@@ -1,10 +1,10 @@
-import { RegisterForm } from "@/app/components/registerForm/registerForm";
+import { RegisterForm } from "@/components/registerForm/registerForm";
 import React from "react";
 
 export default function RegisterPage() {
 	return (
 		<div>
-			<RegisterForm/>
+			<RegisterForm />
 		</div>
 	);
 }
